@@ -8,7 +8,7 @@
 using namespace std;
 
 int main() {
-	setlocale(NULL, "RUS");
+	setlocale(LC_ALL, "ru");
 	int n, m,k=1;
 	int max = 0;
 	
