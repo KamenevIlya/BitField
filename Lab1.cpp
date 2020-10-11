@@ -9,19 +9,18 @@ using namespace std;
 
 int main() {
 	setlocale(LC_ALL, "ru");
-	int n, m,k=1;
+	int n, m, k = 1;
 	int max = 0;
-	
-	
-	
 
 
-	/*cout << "Тестирование програм поддержки понятия множества" << endl;
-	cout << "              Решето Эратосфена" << endl;*/
+
+
+
+
 	cout << "Введите верхнюю границу целых значений - ";
 	cin >> n;
-	TSet s1(n + 1), s2(n+1), s3(n+1), s4(n+1), s5(n+1);
-	int count1=n;
+	TSet s1(n + 1), s2(n + 1), s3(n + 1), s4(n + 1), s5(n + 1);
+	int count1 = n;
 	for (m = 2; m <= n; m++) s1.InsElem(m);
 	for (m = 2; m * m <= n; m++)
 		if (s1.IsMember(m))
@@ -33,31 +32,31 @@ int main() {
 	int count2 = n;
 	for (m = 1; m <= n; m++) s2.InsElem(m);
 	for (m = 1; m <= n; m++) {
-		if (m%3!=0)
+		if (m % 3 != 0)
 		{
 			s2.DelElem(m);
 			count2--;
 		}
 	}
-	
+
 	if (count1 < count2)
 		max = count2;
 	else
 		max = count1;
-	
+
 	int count3 = n;
 	for (m = 1; m <= n; m++) s3.InsElem(m);
 	for (m = 1; m <= n; m++) {
 		int a = 1, k = m;
 		int sNum = 0;
-		while (a <=n)
+		while (a <= n)
 		{
 			sNum += k % 10;
 			k /= 10;
 			a *= 10;
 		}
 
-		if (sNum%2!=0)
+		if (sNum % 2 != 0)
 		{
 			s3.DelElem(m);
 			count3--;
@@ -72,13 +71,13 @@ int main() {
 	int count4 = n;
 	for (m = 1; m <= n; m++) s4.InsElem(m);
 	for (m = 1; m <= n; m++) {
-		if (m % 2 == 0&&m%3!=0)
+		if (m % 2 == 0 && m % 3 != 0)
 		{
 			s4.DelElem(m);
 			count4--;
 		}
 	}
-	if (count4>max)
+	if (count4 > max)
 	{
 		max = count4;
 	}
@@ -89,7 +88,7 @@ int main() {
 	{
 		cout << "Ошибка! Будет выведено самое мощное множество!" << endl;
 	}
-	else if (choice==2)
+	else if (choice == 2)
 	{
 		cout << "Доступные множества\n1)Множество простых чисел\n2)Множество чисел кратных 3\n3)Множество чисел с четной суммой цифр\n4)Множество нечетных чисел или кратных 6" << endl;
 		cin >> choice2;
@@ -102,7 +101,7 @@ int main() {
 		default:cout << "Ошибка! Будет выведено самое мощное множество!" << endl; break;
 		}
 	}
-	if (max==count1)
+	if (max == count1)
 	{
 		cout << "печать простых чисел" << endl;
 		for (m = 2; m <= n; m++)
@@ -157,4 +156,5 @@ int main() {
 	}
 
 	return 0;
+
 }
